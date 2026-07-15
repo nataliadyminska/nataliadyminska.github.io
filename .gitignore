@@ -1,0 +1,20 @@
+# System
+.DS_Store
+Thumbs.db
+
+# Editor / local tooling
+.vscode/
+.idea/
+.claude/
+node_modules/
+*.log
+
+# Scratch / temp
+scratch/
+tmp/
+
+# Materiały źródłowe i prywatne — NIE publikować (repo jest publiczne)
+CV_Natalia_Dyminska.pdf
+IMG_7507.heic
+natalia.png
+docs/

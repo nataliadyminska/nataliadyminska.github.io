@@ -1,0 +1,15 @@
+{
+  "name": "Natalia Dymińska — psychoterapia",
+  "short_name": "N. Dymińska",
+  "description": "Psychoterapeutka w trakcie szkolenia — Wrocław.",
+  "lang": "pl",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f4f1ea",
+  "theme_color": "#2c3a47",
+  "icons": [
+    { "src": "/assets/icons/favicon.svg", "sizes": "any", "type": "image/svg+xml" },
+    { "src": "/assets/icons/icon-180.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "/assets/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
