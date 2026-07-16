@@ -94,7 +94,7 @@
       iconSize: [30, 40],
       iconAnchor: [15, 40]
     });
-    L.marker([lat, lon], { icon: pin, title: "al. Jaworowa 14, Wrocław" }).addTo(map);
+    L.marker([lat, lon], { icon: pin, title: "al. Jaworowa, Wrocław" }).addTo(map);
 
     // scroll-zoom tylko po kliknięciu w mapę (nie łapie scrolla strony)
     map.on("click", function () { map.scrollWheelZoom.enable(); });
