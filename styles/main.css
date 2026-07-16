@@ -197,10 +197,6 @@ ul { margin: 0; padding: 0; list-style: none; }
 .about__inner { position: relative; z-index: 2; max-width: 52rem; }
 .about__text p { color: #eef1f2; }
 .about__text strong { color: #fff; font-weight: 600; }
-.about__edu {
-  margin-top: 2rem; padding-top: 1.8rem; border-top: 1px solid rgba(255, 255, 255, 0.16);
-}
-.about__edu p { font-size: 1rem; color: #d7dee2; }
 
 /* =========================================================
    JAK PRACUJĘ
