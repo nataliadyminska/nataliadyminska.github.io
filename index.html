@@ -35,21 +35,80 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Natalia Dymińska",
-    "jobTitle": "Psychoterapeutka",
-    "url": "https://nataliadyminska.pl/",
-    "email": "mailto:dyminska.natalia@gmail.com",
-    "telephone": "+48791846625",
-    "knowsLanguage": ["pl", "en", "de"],
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "al. Jaworowa",
-      "postalCode": "53-123",
-      "addressLocality": "Wrocław",
-      "addressCountry": "PL"
-    },
-    "description": "Psychoterapeutka we Wrocławiu. Wsparcie psychoterapeutyczne dla osób dorosłych — stacjonarnie i online."
+    "@graph": [
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://nataliadyminska.pl/#gabinet",
+        "name": "Natalia Dymińska — psychoterapia",
+        "description": "Psychoterapia dla osób dorosłych we Wrocławiu — stacjonarnie i online. Wsparcie w kryzysie, lęku, obniżonym nastroju, trudnościach w relacjach i zmianie życiowej.",
+        "url": "https://nataliadyminska.pl/",
+        "telephone": "+48791846625",
+        "email": "dyminska.natalia@gmail.com",
+        "image": "https://nataliadyminska.pl/assets/icons/og-image.jpg",
+        "areaServed": { "@type": "City", "name": "Wrocław" },
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "al. Jaworowa",
+          "postalCode": "53-123",
+          "addressLocality": "Wrocław",
+          "addressCountry": "PL"
+        },
+        "availableLanguage": ["pl", "en", "de"],
+        "knowsAbout": [
+          "psychoterapia", "psychoterapia integracyjna", "psychoterapia psychodynamiczna",
+          "lęk", "obniżony nastrój", "kryzys", "wypalenie", "stres",
+          "trudności w relacjach", "zmiana życiowa", "macierzyństwo", "poczucie własnej wartości"
+        ],
+        "provider": { "@id": "https://nataliadyminska.pl/#natalia" }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://nataliadyminska.pl/#natalia",
+        "name": "Natalia Dymińska",
+        "jobTitle": "Psychoterapeutka",
+        "url": "https://nataliadyminska.pl/",
+        "email": "mailto:dyminska.natalia@gmail.com",
+        "telephone": "+48791846625",
+        "knowsLanguage": ["pl", "en", "de"],
+        "worksFor": { "@id": "https://nataliadyminska.pl/#gabinet" }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://nataliadyminska.pl/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Czym właściwie jest psychoterapia?",
+            "acceptedAnswer": { "@type": "Answer", "text": "To regularne spotkania i rozmowa w bezpiecznej, poufnej relacji. Nie chodzi o gotowe rady, ale o wspólne zrozumienie tego, co się w Tobie dzieje — tak, by móc realnie coś zmienić. Psychoterapia pomaga m.in. w kryzysach, trudnościach emocjonalnych oraz w relacjach." }
+          },
+          {
+            "@type": "Question",
+            "name": "Ile trwa jedna sesja?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Pojedyncza sesja trwa 50 minut. Zwykle spotykamy się raz w tygodniu, o stałej porze — regularność jest ważną częścią pracy." }
+          },
+          {
+            "@type": "Question",
+            "name": "Czym jest kontrakt psychoterapeutyczny?",
+            "acceptedAnswer": { "@type": "Answer", "text": "To wspólne ustalenia, które przyjmujemy na początku współpracy: nad czym pracujemy, jak często się spotykamy, jak wyglądają kwestie organizacyjne (np. odwoływanie sesji) i że wszystko, o czym rozmawiamy, jest objęte tajemnicą. Kontrakt to nie formalność — to fundament poczucia bezpieczeństwa." }
+          },
+          {
+            "@type": "Question",
+            "name": "Jak długo trwa psychoterapia?",
+            "acceptedAnswer": { "@type": "Answer", "text": "To zależy od Ciebie i tego, z czym przychodzisz. Czasem wystarczy kilka lub kilkanaście spotkań, czasem praca trwa dłużej. O tym, jak długo potrwa, decydujemy wspólnie — nie jesteś do niczego zobowiązana/zobowiązany z góry." }
+          },
+          {
+            "@type": "Question",
+            "name": "Czy to, o czym mówię, jest bezpieczne?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Tak. Obowiązuje mnie tajemnica zawodowa — wszystko, o czym rozmawiamy, zostaje między nami. Twoje dane i to, czym się dzielisz, są chronione zgodnie z RODO. Zaufanie i bezpieczeństwo to podstawa naszej pracy." }
+          },
+          {
+            "@type": "Question",
+            "name": "Skąd mam wiedzieć, czy to dla mnie?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Nie musisz tego wiedzieć z góry — właśnie po to są konsultacje. Jeśli coś Cię niepokoi, przytłacza, albo po prostu czujesz, że chcesz lepiej zrozumieć siebie — to wystarczający powód, żeby spróbować. Napisz, a wspólnie się temu przyjrzymy." }
+          }
+        ]
+      }
+    ]
   }
   </script>
 </head>
