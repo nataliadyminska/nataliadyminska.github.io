@@ -1,20 +1,22 @@
 /* =========================================================
    Natalia Dymińska — psychoterapia
    Design tokens + layout + sekcje
-   Paleta: spokojny błękit · piaskowa biel · granat · miedź
+   Paleta: ciepły krem · szałwia · granat · miedź
    ========================================================= */
 
 /* ---------- Tokens ---------- */
 :root {
   /* kolory */
-  --color-bg:          #f4f1ea; /* piaskowa biel */
-  --color-bg-alt:      #ece7db; /* cieplejszy piasek (naprzemienne sekcje) */
-  --color-surface:     #fbfaf6; /* ciepła biel (karty) */
+  --color-bg:          #f7f3ea; /* ciepły krem */
+  --color-bg-alt:      #f0e9da; /* głębszy piasek (naprzemienne sekcje) */
+  --color-surface:     #fdfbf6; /* ciepła biel (karty) */
   --color-ink:         #2c3a47; /* granatowy tekst */
   --color-ink-muted:   #55636d; /* tekst drugorzędny */
   --color-blue:        #7c93a6; /* brand — elementy dekoracyjne */
   --color-blue-soft:   #a9bccb; /* jasny błękit — tła/detale */
   --color-blue-deep:   #3e5567; /* nagłówki/akcenty na jasnym (AA) */
+  --color-sage:        #97a98f; /* szałwia — botaniczne dekoracje */
+  --color-sage-deep:   #5f7259; /* szałwia do ikon/detali na jasnym */
   --color-accent:      #a9683c; /* miedź — przyciski/detale */
   --color-accent-deep: #8a5228; /* miedź do tekstu-linku (AA na jasnym) */
   --color-accent-warm: #d09a6b; /* miedź na ciemnym tle */
@@ -84,21 +86,26 @@ ul { margin: 0; padding: 0; list-style: none; }
   padding: 0.95em 1.7em; border-radius: 999px; border: 1.5px solid transparent;
   cursor: pointer; transition: transform 0.2s var(--ease), background-color 0.2s var(--ease), color 0.2s var(--ease), border-color 0.2s var(--ease);
 }
-.button--primary { background: var(--color-ink); color: var(--color-surface); }
-.button--primary:hover { background: var(--color-blue-deep); color: #fff; transform: translateY(-2px); }
+.button--primary { background: var(--color-accent-deep); color: #fff; box-shadow: 0 14px 28px -18px rgba(138, 82, 40, 0.9); }
+.button--primary:hover { background: var(--color-accent); color: #fff; transform: translateY(-2px); }
 .button--ghost { background: transparent; color: var(--color-ink); border-color: rgba(44, 58, 71, 0.35); }
 .button--ghost:hover { border-color: var(--color-ink); background: rgba(44, 58, 71, 0.05); color: var(--color-ink); }
+.button--light { background: rgba(253, 251, 246, 0.12); color: #fff; border-color: rgba(255, 255, 255, 0.7); }
+.button--light:hover { background: var(--color-surface); color: var(--color-ink); border-color: var(--color-surface); transform: translateY(-2px); }
 
 /* ---------- Section titles ---------- */
 .section__title {
   font-size: var(--fs-h2); margin-bottom: 0.9em; position: relative;
 }
+/* Botaniczna "gałązka" pod tytułem sekcji (line-art, data URI) */
 .section__title::after {
-  content: ""; display: block; width: 3rem; height: 3px; margin-top: 0.6rem;
-  background: var(--color-accent); border-radius: 2px;
+  content: ""; display: block; width: 84px; height: 18px; margin-top: 0.7rem;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 20' fill='none' stroke='%23a9683c' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 14C30 12.5 58 11 92 8.5'/%3E%3Cpath d='M38 12C39 6.5 43 3 49 2 47.5 7.5 43.5 11 38 12Z'/%3E%3Cpath d='M66 10C67 4.5 71 1 77 0 75.5 5.5 71.5 9 66 10Z'/%3E%3Cpath d='M52 11.5C54 15.5 58 17.5 63 17.5 61 13.5 57 11.5 52 11.5Z'/%3E%3C/svg%3E") left center / contain no-repeat;
 }
 .section__title--light { color: var(--color-surface); }
-.section__title--light::after { background: var(--color-accent-warm); }
+.section__title--light::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 20' fill='none' stroke='%23d09a6b' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 14C30 12.5 58 11 92 8.5'/%3E%3Cpath d='M38 12C39 6.5 43 3 49 2 47.5 7.5 43.5 11 38 12Z'/%3E%3Cpath d='M66 10C67 4.5 71 1 77 0 75.5 5.5 71.5 9 66 10Z'/%3E%3Cpath d='M52 11.5C54 15.5 58 17.5 63 17.5 61 13.5 57 11.5 52 11.5Z'/%3E%3C/svg%3E");
+}
 .section__lead { font-size: var(--fs-lead); color: var(--color-blue-deep); font-family: var(--font-serif); font-weight: 600; line-height: 1.4; }
 
 /* =========================================================
@@ -106,13 +113,15 @@ ul { margin: 0; padding: 0; list-style: none; }
    ========================================================= */
 .site-header {
   position: sticky; top: 0; z-index: 50;
-  background: rgba(244, 241, 234, 0.82);
+  background: rgba(247, 243, 234, 0.85);
   backdrop-filter: saturate(140%) blur(10px);
   -webkit-backdrop-filter: saturate(140%) blur(10px);
   border-bottom: 1px solid rgba(44, 58, 71, 0.08);
 }
 .site-header__inner { display: flex; align-items: center; justify-content: space-between; min-height: 68px; }
-.brand { display: flex; flex-direction: column; text-decoration: none; line-height: 1.1; }
+.brand { display: flex; align-items: center; gap: 0.65rem; text-decoration: none; line-height: 1.1; }
+.brand__mark { flex: none; width: 28px; height: 28px; color: var(--color-sage-deep); }
+.brand__text { display: flex; flex-direction: column; }
 .brand__name { font-family: var(--font-serif); font-weight: 600; font-size: 1.15rem; color: var(--color-ink); }
 .brand__role { font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--color-blue-deep); }
 
@@ -132,8 +141,9 @@ ul { margin: 0; padding: 0; list-style: none; }
 .hero {
   position: relative; overflow: hidden;
   background:
-    radial-gradient(80% 120% at 50% -10%, rgba(169, 188, 203, 0.45), transparent 60%),
-    linear-gradient(180deg, #eef1ef 0%, var(--color-bg) 55%);
+    radial-gradient(70% 110% at 88% -5%, rgba(151, 169, 143, 0.22), transparent 62%),
+    radial-gradient(70% 110% at 4% 100%, rgba(208, 154, 107, 0.14), transparent 55%),
+    linear-gradient(180deg, #f4eee1 0%, var(--color-bg) 60%);
   padding-block: clamp(3.5rem, 9vw, 7rem);
 }
 .hero__inner {
@@ -141,8 +151,9 @@ ul { margin: 0; padding: 0; list-style: none; }
   display: grid; gap: clamp(2rem, 5vw, 4rem); align-items: center; text-align: center;
 }
 .hero__eyebrow {
-  font-size: 0.82rem; letter-spacing: 0.26em; text-transform: uppercase;
-  color: var(--color-blue-deep); font-weight: 600; margin-bottom: 1.1rem;
+  font-family: var(--font-serif); font-style: italic; font-weight: 400;
+  font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem); letter-spacing: 0.02em;
+  color: var(--color-accent-deep); margin-bottom: 0.9rem;
 }
 .hero__title { font-size: var(--fs-hero); color: var(--color-ink); margin-bottom: 0.3em; }
 .hero__tagline {
@@ -160,15 +171,30 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 .hero__portrait::before {
   content: ""; position: absolute; z-index: 1; inset: -9% -9% -3% -9%;
-  border-radius: inherit;
-  background: radial-gradient(60% 60% at 50% 35%, rgba(124, 147, 166, 0.5), transparent 70%);
+  border-radius: 190px 190px 22px 22px;
+  background: radial-gradient(60% 60% at 50% 35%, rgba(151, 169, 143, 0.45), transparent 70%);
   filter: blur(6px);
 }
+/* delikatna łukowa obwódka przesunięta względem portretu */
+.hero__portrait::after {
+  content: ""; position: absolute; z-index: 0; inset: 0;
+  border-radius: 190px 190px 22px 22px;
+  border: 2px solid rgba(169, 104, 60, 0.5);
+  transform: translate(-16px, -14px);
+}
+
+/* Gałązki line-art w tle hero */
+.hero__branch {
+  position: absolute; z-index: 1; color: var(--color-sage);
+  aspect-ratio: 120 / 260; pointer-events: none;
+}
+.hero__branch--left { width: clamp(80px, 11vw, 150px); left: -18px; bottom: -34px; opacity: 0.55; transform: rotate(-16deg); }
+.hero__branch--right { width: clamp(100px, 13vw, 180px); right: -20px; top: -28px; opacity: 0.4; transform: rotate(158deg); }
 
 .hero__glow {
   position: absolute; z-index: 1; width: 42rem; height: 42rem; border-radius: 50%;
   left: 50%; top: -24rem; transform: translateX(-50%);
-  background: radial-gradient(circle, rgba(124, 147, 166, 0.22), transparent 62%);
+  background: radial-gradient(circle, rgba(151, 169, 143, 0.2), transparent 62%);
   pointer-events: none;
 }
 
@@ -180,23 +206,80 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 
 /* =========================================================
-   O MNIE  (tło zdjęcie + granatowa nakładka)
+   MANIFEST  (typograficzny oddech)
    ========================================================= */
-.about { position: relative; color: var(--color-surface); padding-block: var(--section-y); overflow: hidden; }
-.about__bg {
-  position: absolute; inset: 0;
-  background-image: image-set(url("../assets/img/about-natalia.webp") type("image/webp"), url("../assets/img/about-natalia.jpg") type("image/jpeg"));
-  background-image: url("../assets/img/about-natalia.jpg"); /* fallback */
-  background-size: cover; background-position: center 30%;
-  transform: scale(1.05);
+.manifesto { background: var(--color-bg); padding-block: clamp(4.5rem, 10vw, 8rem); }
+.manifesto__inner { text-align: center; }
+.manifesto__text {
+  font-family: var(--font-serif); font-weight: 400;
+  font-size: clamp(1.9rem, 1.3rem + 3vw, 3.4rem); line-height: 1.22; letter-spacing: -0.01em;
+  color: var(--color-blue-deep); max-width: 21ch; margin-inline: auto; margin-block: 0;
 }
-.about__overlay {
-  position: absolute; inset: 0;
-  background: linear-gradient(115deg, rgba(30, 41, 51, 0.94) 0%, rgba(35, 48, 59, 0.86) 45%, rgba(44, 58, 71, 0.7) 100%);
+/* gałązka nad manifestem */
+.manifesto__text::before {
+  content: ""; display: block; width: 84px; height: 18px; margin: 0 auto 1.6rem;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 20' fill='none' stroke='%23a9683c' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 14C30 12.5 58 11 92 8.5'/%3E%3Cpath d='M38 12C39 6.5 43 3 49 2 47.5 7.5 43.5 11 38 12Z'/%3E%3Cpath d='M66 10C67 4.5 71 1 77 0 75.5 5.5 71.5 9 66 10Z'/%3E%3Cpath d='M52 11.5C54 15.5 58 17.5 63 17.5 61 13.5 57 11.5 52 11.5Z'/%3E%3C/svg%3E") center / contain no-repeat;
 }
-.about__inner { position: relative; z-index: 2; max-width: 52rem; }
-.about__text p { color: #eef1f2; }
-.about__text strong { color: #fff; font-weight: 600; }
+
+/* =========================================================
+   O MNIE  (jasna sekcja: zdjęcie w łuku + tekst)
+   ========================================================= */
+.about { position: relative; padding-block: var(--section-y); background: var(--color-bg); overflow: hidden; }
+.about__inner { display: grid; gap: clamp(2.4rem, 5vw, 4.5rem); align-items: start; }
+.about__media { position: relative; width: min(100%, 24rem); margin-inline: auto; }
+.about__frame {
+  position: relative; z-index: 1;
+  border-radius: 999px 999px var(--radius) var(--radius);
+  overflow: hidden; box-shadow: var(--shadow);
+}
+.about__frame img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; }
+/* szałwiowa obwódka przesunięta względem zdjęcia */
+.about__media::before {
+  content: ""; position: absolute; z-index: 0; inset: 0;
+  border-radius: 999px 999px var(--radius) var(--radius);
+  border: 2px solid rgba(151, 169, 143, 0.6);
+  transform: translate(18px, 20px);
+}
+.about__text p { color: var(--color-ink); }
+.about__text strong { color: var(--color-blue-deep); font-weight: 600; }
+
+@media (min-width: 900px) {
+  .about__inner { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); }
+  .about__media { position: sticky; top: 100px; }
+  /* karta tekstu obok zdjęcia, lekko przesunięta w dół */
+  .about__body {
+    position: relative; z-index: 2; max-width: 44rem;
+    margin-top: 2rem;
+    background: var(--color-surface);
+    padding: clamp(2rem, 3.2vw, 3.2rem);
+    border-radius: var(--radius);
+    border: 1px solid rgba(44, 58, 71, 0.07);
+    box-shadow: var(--shadow);
+  }
+}
+
+/* =========================================================
+   CYTAT / ODDECH  (pełnowymiarowe zdjęcie + nakładka)
+   ========================================================= */
+.quote { position: relative; overflow: hidden; color: #fff; text-align: center; padding-block: clamp(5rem, 12vw, 8.5rem); }
+.quote__bg {
+  position: absolute; inset: 0;
+  background-image: url("../assets/img/quote-field.jpg"); /* fallback */
+  background-image: image-set(url("../assets/img/quote-field.webp") type("image/webp"), url("../assets/img/quote-field.jpg") type("image/jpeg"));
+  background-size: cover; background-position: center 68%;
+  transform: scale(1.04);
+}
+.quote__overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(43, 34, 22, 0.5) 0%, rgba(35, 30, 22, 0.62) 100%);
+}
+.quote__inner { position: relative; z-index: 2; display: grid; justify-items: center; gap: 2rem; }
+.quote__text {
+  font-family: var(--font-serif); font-style: italic; font-weight: 400;
+  font-size: clamp(1.7rem, 1.2rem + 2.4vw, 2.9rem); line-height: 1.25;
+  max-width: 24ch; margin: 0;
+  text-shadow: 0 2px 26px rgba(0, 0, 0, 0.4);
+}
 
 /* =========================================================
    JAK PRACUJĘ
@@ -215,22 +298,22 @@ ul { margin: 0; padding: 0; list-style: none; }
 .timeline { position: relative; display: grid; gap: 0.2rem; }
 .timeline__item {
   position: relative;
-  display: grid; grid-template-columns: 40px 1fr; column-gap: 1.1rem; row-gap: 0.5rem;
-  padding-bottom: 1.6rem;
+  display: grid; grid-template-columns: 56px 1fr; column-gap: 1.4rem; row-gap: 0.5rem;
+  padding-bottom: 2rem;
 }
 .timeline__item:last-child { padding-bottom: 0; }
 /* pionowa linia łącząca środki numerów */
 .timeline__item:not(:last-child)::before {
-  content: ""; position: absolute; z-index: 0; left: 19px; top: 20px; height: 100%; width: 2px;
-  background: linear-gradient(var(--color-blue-soft), rgba(169, 188, 203, 0.35));
+  content: ""; position: absolute; z-index: 0; left: 27px; top: 28px; height: 100%; width: 2px;
+  background: linear-gradient(rgba(169, 104, 60, 0.45), rgba(151, 169, 143, 0.4));
 }
 .timeline__head { display: contents; }
 .timeline__num {
   grid-column: 1; grid-row: 1; align-self: start; position: relative; z-index: 1;
-  display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%;
-  background: var(--color-ink); color: var(--color-surface);
-  font-family: var(--font-serif); font-weight: 600; font-size: 1.1rem;
-  box-shadow: 0 0 0 5px var(--color-bg);
+  display: grid; place-items: center; width: 56px; height: 56px; border-radius: 50%;
+  background: var(--color-bg-alt); color: var(--color-accent-deep);
+  font-family: var(--font-serif); font-weight: 400; font-size: 1.6rem;
+  box-shadow: 0 0 0 6px var(--color-bg);
 }
 .timeline__title {
   grid-column: 2; grid-row: 1; align-self: center; margin: 0;
@@ -271,22 +354,23 @@ ul { margin: 0; padding: 0; list-style: none; }
 .tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(15.5rem, 1fr)); gap: 1rem; }
 .tile {
   position: relative; background: var(--color-surface); border-radius: var(--radius);
-  padding: 1.5rem 1.4rem; border: 1px solid rgba(44, 58, 71, 0.08);
+  padding: 1.6rem 1.5rem; border: 1px solid rgba(95, 114, 89, 0.16);
   box-shadow: 0 8px 24px -20px rgba(35, 48, 59, 0.5);
   transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease), border-color 0.25s var(--ease);
   overflow: hidden;
 }
 .tile::after {
   content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
-  background: var(--color-accent); transform: scaleY(0); transform-origin: top; transition: transform 0.28s var(--ease);
+  background: var(--color-sage); transform: scaleY(0); transform-origin: top; transition: transform 0.28s var(--ease);
 }
-.tile:hover { transform: translateY(-5px); box-shadow: var(--shadow); border-color: rgba(44, 58, 71, 0.14); }
+.tile:hover { transform: translateY(-5px); box-shadow: var(--shadow); border-color: rgba(95, 114, 89, 0.3); }
 .tile:hover::after { transform: scaleY(1); }
-.tile:hover .tile__icon { color: var(--color-accent); transform: scale(1.08); }
+.tile:hover .tile__icon { color: var(--color-accent-deep); background: rgba(169, 104, 60, 0.14); transform: scale(1.06); }
 .tile__icon {
-  width: 34px; height: 34px; margin-bottom: 0.9rem; color: var(--color-blue-deep);
+  box-sizing: content-box; width: 30px; height: 30px; padding: 12px; margin-bottom: 1rem;
+  border-radius: 50%; background: rgba(151, 169, 143, 0.2); color: var(--color-sage-deep);
   fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round;
-  transition: color 0.25s var(--ease), transform 0.25s var(--ease);
+  transition: color 0.25s var(--ease), background-color 0.25s var(--ease), transform 0.25s var(--ease);
 }
 .tile__title { font-size: 1.12rem; color: var(--color-ink); margin-bottom: 0.35em; }
 .tile__text { color: var(--color-ink-muted); font-size: 0.95rem; line-height: 1.55; margin: 0; }
@@ -295,7 +379,12 @@ ul { margin: 0; padding: 0; list-style: none; }
 /* =========================================================
    KONTAKT
    ========================================================= */
-.contact { padding-block: var(--section-y); background: var(--color-dark); color: var(--color-surface); }
+.contact { position: relative; overflow: hidden; padding-block: var(--section-y); background: var(--color-dark); color: var(--color-surface); }
+.contact__branch {
+  position: absolute; right: -34px; bottom: -48px; width: clamp(140px, 18vw, 240px);
+  aspect-ratio: 120 / 260; color: #fff; opacity: 0.09; transform: rotate(22deg); pointer-events: none;
+}
+.contact__inner { position: relative; z-index: 1; }
 .contact__lead { max-width: 42rem; font-size: var(--fs-lead); color: #dbe2e6; margin-bottom: 2.6rem; font-family: var(--font-serif); font-weight: 400; line-height: 1.45; }
 .contact__layout { display: grid; gap: 1.5rem; align-items: start; }
 .contact__methods { display: grid; gap: 1rem; }

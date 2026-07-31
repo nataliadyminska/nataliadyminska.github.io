@@ -73,6 +73,11 @@
         "email": "mailto:dyminska.natalia@gmail.com",
         "telephone": "+48791846625",
         "knowsLanguage": ["pl", "en", "de"],
+        "memberOf": {
+          "@type": "Organization",
+          "name": "Stowarzyszenie Psychologów Chrześcijańskich — Oddział Wrocław",
+          "url": "https://wroclaw.spch.pl/"
+        },
         "worksFor": { "@id": "https://nataliadyminska.pl/#gabinet" }
       },
       {
@@ -124,12 +129,36 @@
   <span id="top" aria-hidden="true"></span>
   <a class="skip-link" href="#tresc">Przejdź do treści</a>
 
+  <!-- Dekoracyjna gałązka (line-art) — używana przez <use> w kilku miejscach -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="deco-branch" viewBox="0 0 120 260" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M60 254C56 210 58 160 62 118 66 76 66 40 58 6"/>
+        <path d="M59 232c-16-2-28-10-34-24 16 0 28 8 34 24z"/>
+        <path d="M61 208c16-4 26-14 30-30-16 2-26 12-30 30z"/>
+        <path d="M60 184c-16-2-28-10-34-24 16 0 28 8 34 24z"/>
+        <path d="M62 158c16-4 26-14 30-30-16 2-26 12-30 30z"/>
+        <path d="M61 132c-16-2-27-10-33-24 16 0 27 8 33 24z"/>
+        <path d="M63 106c15-4 25-14 29-29-15 2-25 12-29 29z"/>
+        <path d="M61 80c-15-2-26-9-32-22 15 0 26 7 32 22z"/>
+        <path d="M62 54c14-4 23-13 27-27-14 2-23 11-27 27z"/>
+        <path d="M60 30c-12-2-21-8-26-18 12 0 21 6 26 18z"/>
+      </symbol>
+    </defs>
+  </svg>
+
   <!-- ============ HEADER / NAV ============ -->
   <header class="site-header">
     <div class="container site-header__inner">
       <a class="brand" href="#top" aria-label="Natalia Dymińska — przejdź na górę">
-        <span class="brand__name">Natalia Dymińska</span>
-        <span class="brand__role">psychoterapia</span>
+        <svg class="brand__mark" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 21C7.8 16.6 6.4 11.4 8.8 6.9 10 4.6 11.2 3.5 12 3c.8.5 2 1.6 3.2 3.9 2.4 4.5 1 9.7-3.2 14.1z"/>
+          <path d="M12 20.5V9"/>
+        </svg>
+        <span class="brand__text">
+          <span class="brand__name">Natalia Dymińska</span>
+          <span class="brand__role">psychoterapia</span>
+        </span>
       </a>
 
       <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="menu" aria-label="Otwórz menu">
@@ -172,15 +201,26 @@
           </picture>
         </div>
       </div>
+      <svg class="hero__branch hero__branch--left" aria-hidden="true"><use href="#deco-branch"/></svg>
+      <svg class="hero__branch hero__branch--right" aria-hidden="true"><use href="#deco-branch"/></svg>
       <div class="hero__glow" aria-hidden="true"></div>
     </section>
 
     <!-- ============ O MNIE ============ -->
     <section class="about" id="o-mnie" aria-labelledby="about-title" data-reveal>
-      <div class="about__bg" aria-hidden="true"></div>
-      <div class="about__overlay" aria-hidden="true"></div>
       <div class="container about__inner">
-        <h2 class="section__title section__title--light" id="about-title">O mnie</h2>
+        <div class="about__media">
+          <div class="about__frame">
+            <picture>
+              <source srcset="assets/img/o-mnie.webp" type="image/webp">
+              <img src="assets/img/o-mnie.jpg" width="1000" height="1250"
+                   alt="Spokojne, ciepłe wnętrze z roślinami i miękkim światłem"
+                   loading="lazy" decoding="async">
+            </picture>
+          </div>
+        </div>
+        <div class="about__body">
+        <h2 class="section__title" id="about-title">O mnie</h2>
         <div class="about__text">
           <p>Najbardziej naturalne jest dla mnie bycie blisko drugiego człowieka. Pomaganie nie jest dla mnie zawodem, który po prostu wybrałam — jest czymś, co czułam w sobie od zawsze. W spotkaniu z drugą osobą najważniejsze są dla mnie <strong>empatia i prawdziwe zrozumienie</strong>: chcę słyszeć nie tylko słowa, ale i to, co kryje się pod nimi.</p>
 
@@ -192,10 +232,20 @@
 
           <p>Swoją pracę poddaję stałej superwizji — regularnie omawiam ją z bardziej doświadczonymi psychoterapeutami. To dla mnie, i dla osób, z którymi pracuję, gwarancja bezpieczeństwa, jakości i etyki.</p>
 
+          <p>Jestem członkinią <a href="https://wroclaw.spch.pl/" target="_blank" rel="noopener">Stowarzyszenia Psychologów Chrześcijańskich</a> — środowiska, które łączy rzetelną wiedzę psychologiczną z uważnością na duchowy wymiar człowieka.</p>
+
           <p>Kończę <strong>czteroletnie całościowe szkolenie z psychoterapii</strong> na Papieskim Wydziale Teologicznym we Wrocławiu — w nurcie integracyjnym, z podstawą psychodynamiczną. To droga, którą przechodzę z pełnym zaangażowaniem, łącząc wiedzę teoretyczną z praktyką prowadzoną pod superwizją.</p>
 
           <p>Kończę również studia magisterskie z <strong>pedagogiki</strong> — pogłębiam w ten sposób rozumienie rozwoju człowieka, relacji i procesów, którym podlegamy przez całe życie.</p>
         </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ MANIFEST ============ -->
+    <section class="manifesto" aria-label="Motto" data-reveal>
+      <div class="container manifesto__inner">
+        <p class="manifesto__text">Nie musisz radzić sobie ze&nbsp;wszystkim w&nbsp;pojedynkę.</p>
       </div>
     </section>
 
@@ -320,6 +370,16 @@
       </div>
     </section>
 
+    <!-- ============ CYTAT / ODDECH ============ -->
+    <section class="quote" aria-labelledby="quote-text">
+      <div class="quote__bg" aria-hidden="true"></div>
+      <div class="quote__overlay" aria-hidden="true"></div>
+      <div class="container quote__inner">
+        <p class="quote__text" id="quote-text">Zmiana zaczyna się od&nbsp;rozmowy.</p>
+        <a class="button button--light" href="#kontakt">Umów pierwsze spotkanie</a>
+      </div>
+    </section>
+
     <!-- ============ DLA KOGO ============ -->
     <section class="for-whom" id="dla-kogo" aria-labelledby="forwhom-title" data-reveal>
       <div class="container for-whom__inner">
@@ -393,6 +453,7 @@
 
     <!-- ============ KONTAKT ============ -->
     <section class="contact" id="kontakt" aria-labelledby="contact-title" data-reveal>
+      <svg class="contact__branch" aria-hidden="true"><use href="#deco-branch"/></svg>
       <div class="container contact__inner">
         <h2 class="section__title section__title--light" id="contact-title">Kontakt</h2>
         <p class="contact__lead">Jeśli czujesz, że to dobry moment — napisz albo zadzwoń. Odpowiem najszybciej, jak potrafię.</p>
@@ -431,6 +492,7 @@
     </section>
   </main>
 
+  <!-- Zdjęcia: Unsplash (licencja Unsplash) — wnętrze: Spacejoy, pole: Federico Respini -->
   <!-- ============ FOOTER ============ -->
   <footer class="site-footer">
     <div class="container site-footer__inner">
