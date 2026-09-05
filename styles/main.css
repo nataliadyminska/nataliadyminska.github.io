@@ -34,9 +34,10 @@
   --fs-small:   0.9rem;
 
   /* rytm i kształty */
-  --maxw:       68rem;
+  --maxw:       76rem;
   --gutter:     clamp(1.25rem, 4vw, 2.5rem);
   --section-y:  clamp(4rem, 8vw, 7.5rem);
+  --header-h:   69px; /* wysokość przyklejonego nagłówka */
   --radius:     18px;
   --radius-sm:  10px;
   --shadow:     0 18px 50px -24px rgba(35, 48, 59, 0.35);
@@ -159,26 +160,27 @@ ul { margin: 0; padding: 0; list-style: none; }
 .hero__tagline {
   font-family: var(--font-serif); font-style: italic; font-weight: 400;
   font-size: var(--fs-lead); color: var(--color-blue-deep); margin-bottom: 0.7em;
+  text-wrap: balance; /* równe łamanie zamiast samotnego słowa w 2. linii */
 }
 .hero__meta { font-size: 0.98rem; color: var(--color-ink-muted); margin-bottom: 2rem; }
 .hero__actions { display: flex; gap: 0.9rem; justify-content: center; flex-wrap: wrap; }
 
-.hero__portrait { position: relative; justify-self: center; width: min(74vw, 320px); }
+.hero__portrait { position: relative; justify-self: center; width: min(80vw, 380px); }
 .hero__portrait img {
   position: relative; z-index: 2; width: 100%; height: auto;
-  border-radius: 190px 190px 22px 22px;
+  border-radius: 50% 50% 22px 22px / 38% 38% 22px 22px;
   box-shadow: 0 34px 64px -32px rgba(35, 48, 59, 0.55);
 }
 .hero__portrait::before {
   content: ""; position: absolute; z-index: 1; inset: -9% -9% -3% -9%;
-  border-radius: 190px 190px 22px 22px;
+  border-radius: 50% 50% 22px 22px / 38% 38% 22px 22px;
   background: radial-gradient(60% 60% at 50% 35%, rgba(151, 169, 143, 0.45), transparent 70%);
   filter: blur(6px);
 }
 /* delikatna łukowa obwódka przesunięta względem portretu */
 .hero__portrait::after {
   content: ""; position: absolute; z-index: 0; inset: 0;
-  border-radius: 190px 190px 22px 22px;
+  border-radius: 50% 50% 22px 22px / 38% 38% 22px 22px;
   border: 2px solid rgba(169, 104, 60, 0.5);
   transform: translate(-16px, -14px);
 }
@@ -188,7 +190,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   position: absolute; z-index: 1; color: var(--color-sage);
   aspect-ratio: 120 / 260; pointer-events: none;
 }
-.hero__branch--left { width: clamp(80px, 11vw, 150px); left: -18px; bottom: -34px; opacity: 0.55; transform: rotate(-16deg); }
+.hero__branch--left { width: clamp(80px, 13vw, 190px); left: -18px; bottom: -40px; opacity: 0.55; transform: rotate(-16deg); }
 .hero__branch--right { width: clamp(100px, 13vw, 180px); right: -20px; top: -28px; opacity: 0.4; transform: rotate(158deg); }
 
 .hero__glow {
@@ -199,9 +201,16 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 
 @media (min-width: 820px) {
-  .hero__inner { grid-template-columns: 1.1fr 0.9fr; text-align: left; }
+  /* hero sięga dolnej krawędzi okna, żeby motyw roślinny schodził do końca ekranu
+     (--header-h = wysokość przyklejonego nagłówka) */
+  .hero {
+    min-height: calc(100vh - var(--header-h));
+    min-height: calc(100svh - var(--header-h));
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .hero__inner { grid-template-columns: 1fr 0.92fr; text-align: left; }
   .hero__content { order: 1; }
-  .hero__portrait { order: 2; justify-self: end; width: min(30vw, 310px); }
+  .hero__portrait { order: 2; justify-self: end; width: min(42vw, 500px); }
   .hero__actions { justify-content: flex-start; }
 }
 
@@ -264,14 +273,14 @@ ul { margin: 0; padding: 0; list-style: none; }
 .quote { position: relative; overflow: hidden; color: #fff; text-align: center; padding-block: clamp(5rem, 12vw, 8.5rem); }
 .quote__bg {
   position: absolute; inset: 0;
-  background-image: url("../assets/img/quote-field.jpg"); /* fallback */
-  background-image: image-set(url("../assets/img/quote-field.webp") type("image/webp"), url("../assets/img/quote-field.jpg") type("image/jpeg"));
-  background-size: cover; background-position: center 68%;
+  background-image: url("../assets/img/quote-gabinet.jpg"); /* fallback */
+  background-image: image-set(url("../assets/img/quote-gabinet.webp") type("image/webp"), url("../assets/img/quote-gabinet.jpg") type("image/jpeg"));
+  background-size: cover; background-position: center 40%;
   transform: scale(1.04);
 }
 .quote__overlay {
   position: absolute; inset: 0;
-  background: linear-gradient(180deg, rgba(43, 34, 22, 0.5) 0%, rgba(35, 30, 22, 0.62) 100%);
+  background: linear-gradient(180deg, rgba(38, 32, 24, 0.62) 0%, rgba(30, 27, 21, 0.72) 100%);
 }
 .quote__inner { position: relative; z-index: 2; display: grid; justify-items: center; gap: 2rem; }
 .quote__text {
