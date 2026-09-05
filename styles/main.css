@@ -407,6 +407,8 @@ a.contact__item:hover { background: rgba(255, 255, 255, 0.12); border-color: var
 .contact__label { font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-blue-soft); }
 .contact__value { font-size: 1.08rem; color: #fff; font-weight: 500; line-height: 1.4; }
 .contact__item--static { cursor: default; }
+.contact__hint { margin-top: 0.15rem; font-size: 0.82rem; color: var(--color-accent-warm); }
+a.contact__item:hover .contact__hint { color: #fff; }
 
 /* Mapa (interaktywna, Leaflet + OpenStreetMap) */
 .map { display: flex; flex-direction: column; gap: 0.6rem; }
