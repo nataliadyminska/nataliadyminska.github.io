@@ -58,6 +58,36 @@
           "addressCountry": "PL"
         },
         "availableLanguage": ["pl", "en", "de"],
+        "priceRange": "120 zł",
+        "currenciesAccepted": "PLN",
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Psychoterapia",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "price": "120",
+              "priceCurrency": "PLN",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Konsultacja psychoterapeutyczna",
+                "serviceType": "Konsultacja psychoterapeutyczna",
+                "provider": { "@id": "https://nataliadyminska.pl/#natalia" }
+              }
+            },
+            {
+              "@type": "Offer",
+              "price": "120",
+              "priceCurrency": "PLN",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Sesja psychoterapii indywidualnej",
+                "serviceType": "Psychoterapia indywidualna",
+                "provider": { "@id": "https://nataliadyminska.pl/#natalia" }
+              }
+            }
+          ]
+        },
         "knowsAbout": [
           "psychoterapia", "psychoterapia integracyjna", "psychoterapia psychodynamiczna", "terapia",
           "depresja", "lęk", "obniżony nastrój", "kryzys", "wypalenie", "stres",
@@ -95,6 +125,11 @@
             "@type": "Question",
             "name": "Ile trwa jedna sesja?",
             "acceptedAnswer": { "@type": "Answer", "text": "Pojedyncza sesja trwa 50 minut. Zwykle spotykamy się raz w tygodniu, o stałej porze — regularność jest ważną częścią pracy." }
+          },
+          {
+            "@type": "Question",
+            "name": "Ile kosztuje sesja?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Konsultacja psychoterapeutyczna i sesja psychoterapii indywidualnej kosztują 120 zł za 50 minut — tyle samo w gabinecie i online. Stawka obowiązuje w trakcie mojego całościowego szkolenia z psychoterapii." }
           },
           {
             "@type": "Question",
@@ -182,6 +217,7 @@
           <li><a href="#o-mnie">O mnie</a></li>
           <li><a href="#jak-pracuje">Jak pracuję</a></li>
           <li><a href="#dla-kogo">Dla kogo</a></li>
+          <li><a href="#cennik">Cennik</a></li>
           <li><a href="#kontakt">Kontakt</a></li>
         </ul>
       </nav>
@@ -331,6 +367,15 @@
           </details>
           <details class="accordion__item">
             <summary class="accordion__summary">
+              <span>Ile kosztuje sesja?</span>
+              <svg class="accordion__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+            </summary>
+            <div class="accordion__panel">
+              <p>Konsultacja psychoterapeutyczna i sesja psychoterapii indywidualnej kosztują 120 zł za 50 minut — tyle samo w gabinecie i online. Stawka obowiązuje w trakcie mojego całościowego szkolenia z psychoterapii. Pełny <a href="#cennik">cennik</a> znajdziesz niżej.</p>
+            </div>
+          </details>
+          <details class="accordion__item">
+            <summary class="accordion__summary">
               <span>Czym jest kontrakt psychoterapeutyczny?</span>
               <svg class="accordion__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
             </summary>
@@ -456,6 +501,40 @@
           </li>
         </ul>
         <p class="for-whom__note">Nie znajdujesz tu swojej sytuacji? To nie znaczy, że psychoterapia Ci nie pomoże. <a href="#kontakt">Napisz</a> — wspólnie się temu przyjrzymy.</p>
+      </div>
+    </section>
+
+    <!-- ============ CENNIK ============ -->
+    <section class="pricing" id="cennik" aria-labelledby="pricing-title" data-reveal>
+      <div class="container pricing__inner">
+        <h2 class="section__title" id="pricing-title">Cennik</h2>
+        <div class="price-table__wrap">
+          <table class="price-table">
+            <caption class="visually-hidden">Cennik konsultacji i sesji psychoterapeutycznych</caption>
+            <thead>
+              <tr>
+                <th scope="col">Usługa</th>
+                <th scope="col" class="price-table__num">Czas</th>
+                <th scope="col" class="price-table__num">Cena</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Konsultacja psychoterapeutyczna</th>
+                <td class="price-table__num">50 min</td>
+                <td class="price-table__num price-table__cost">120&nbsp;zł</td>
+              </tr>
+              <tr>
+                <th scope="row">Sesja psychoterapii indywidualnej</th>
+                <td class="price-table__num">50 min</td>
+                <td class="price-table__num price-table__cost">120&nbsp;zł</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="pricing__hint">Sesje online kosztują tyle samo co spotkania w gabinecie.</p>
+        <p class="pricing__hint">Stawka obowiązuje w trakcie mojego całościowego szkolenia z psychoterapii.</p>
       </div>
     </section>
 
