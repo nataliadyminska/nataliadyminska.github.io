@@ -416,8 +416,11 @@ ul { margin: 0; padding: 0; list-style: none; }
 .price-table tbody tr + tr th, .price-table tbody tr + tr td {
   border-top: 1px solid rgba(44, 58, 71, 0.1);
 }
-.price-table__num { white-space: nowrap; text-align: right; color: var(--color-ink-muted); width: 1%; }
+.price-table__num { white-space: nowrap; color: var(--color-ink-muted); }
+/* Reguły zakładające display:table — tylko powyżej progu, bo na mobile
+   wiersz jest blokiem, a komórki inline-block (width:1% dałoby ~3px). */
 @media (min-width: 561px) {
+  .price-table__num { width: 1%; text-align: right; }
   .price-table thead th.price-table__num,
   .price-table tbody td.price-table__num { padding-left: 2.5rem; }
 }
