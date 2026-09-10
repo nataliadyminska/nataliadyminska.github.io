@@ -1,5 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Natalia Dymińska">
-  <rect width="64" height="64" rx="14" fill="#2c3a47"/>
-  <text x="50%" y="50%" dy="0.02em" text-anchor="middle" dominant-baseline="central"
-        font-family="Georgia, 'Times New Roman', serif" font-size="34" font-weight="600" fill="#f4f1ea">N</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-label="Natalia Dymińska — psychoterapia">
+  <rect width="24" height="24" rx="5.5" fill="#f7f3ea"/>
+  <g transform="translate(12 12) scale(1.05) translate(-12 -12)"
+     fill="none" stroke="#5f7259" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 21C7.8 16.6 6.4 11.4 8.8 6.9 10 4.6 11.2 3.5 12 3c.8.5 2 1.6 3.2 3.9 2.4 4.5 1 9.7-3.2 14.1z"/>
+    <path d="M12 20V9.5"/>
+  </g>
 </svg>
