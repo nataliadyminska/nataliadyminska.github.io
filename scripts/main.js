@@ -68,7 +68,7 @@
 
   /* ---------- Logo → przewiń na samą górę ---------- */
   var brand = document.querySelector(".brand");
-  if (brand) {
+  if (brand && brand.getAttribute("href") === "#top") {
     brand.addEventListener("click", function (e) {
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: reduced ? "auto" : "smooth" });

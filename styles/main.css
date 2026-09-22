@@ -512,6 +512,10 @@ a.contact__item:hover .contact__hint { color: #fff; }
 .site-footer__name { font-family: var(--font-serif); font-size: 1.1rem; color: #fff; margin-bottom: 0.3rem; }
 .site-footer__note { font-size: 0.92rem; margin-bottom: 0.3rem; }
 .site-footer__copy { font-size: 0.82rem; color: #8595a0; margin: 0; }
+.site-footer__legal { font-size: 0.82rem; color: #8595a0; margin: 0.5rem 0 0; }
+.site-footer__legal a { color: #b9c4cc; text-decoration: none; border-bottom: 1px solid rgba(185, 196, 204, 0.35); }
+.site-footer__legal a:hover { color: #fff; border-bottom-color: #fff; }
+.site-footer__legal span { margin: 0 0.5rem; }
 
 /* Social (Facebook, LinkedIn…) */
 .social { display: flex; justify-content: center; gap: 0.6rem; list-style: none; margin: 0 0 1rem; padding: 0; }
@@ -524,6 +528,59 @@ a.contact__item:hover .contact__hint { color: #fff; }
   color: #fff; background: rgba(255, 255, 255, 0.14); border-color: var(--color-accent-warm); transform: translateY(-2px);
 }
 .social__icon { width: 1.15rem; height: 1.15rem; fill: currentColor; }
+
+/* =========================================================
+   ZGODA NA COOKIES
+   Banner dokleja się przez JS tylko wtedy, gdy jest o co pytać.
+   ========================================================= */
+.consent {
+  position: fixed; inset: auto 0 0 0; z-index: 90;
+  padding: 0 var(--gutter) max(1rem, env(safe-area-inset-bottom));
+  transform: translateY(110%); opacity: 0;
+  transition: transform 0.45s var(--ease), opacity 0.45s var(--ease);
+  pointer-events: none;
+}
+.consent.is-visible { transform: none; opacity: 1; pointer-events: auto; }
+.consent__inner {
+  max-width: var(--maxw); margin-inline: auto;
+  display: flex; flex-wrap: wrap; gap: 1rem 2rem; align-items: center; justify-content: space-between;
+  padding: 1.25rem 1.5rem; border-radius: var(--radius);
+  background: var(--color-surface); color: var(--color-ink);
+  border: 1px solid rgba(44, 58, 71, 0.12);
+  box-shadow: 0 24px 60px -28px rgba(35, 48, 59, 0.55);
+}
+.consent__body { flex: 1 1 28rem; min-width: 0; }
+.consent__title { font-family: var(--font-serif); font-size: 1.15rem; margin: 0 0 0.3rem; color: var(--color-ink); }
+.consent__text { font-size: 0.95rem; line-height: 1.55; margin: 0; color: var(--color-ink-muted); }
+.consent__text a { color: var(--color-accent-deep); }
+.consent__actions { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+.consent__actions .button { padding-block: 0.7rem; }
+@media (max-width: 640px) {
+  .consent__inner { padding: 1.1rem 1.15rem; }
+  .consent__actions { width: 100%; }
+  .consent__actions .button { flex: 1 1 0; text-align: center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .consent { transition: none; }
+}
+
+/* =========================================================
+   PODSTRONA PRAWNA (polityka prywatności)
+   ========================================================= */
+.legal { padding-block: clamp(3rem, 6vw, 5rem); background: var(--color-bg); }
+.legal__inner { max-width: 46rem; }
+.legal .section__title { margin-bottom: 0.6rem; }
+.legal__meta { color: var(--color-ink-muted); font-size: var(--fs-small); margin-bottom: 2.4rem; }
+.legal h2 { font-family: var(--font-serif); font-size: var(--fs-h3); color: var(--color-blue-deep); margin: 2.2rem 0 0.7rem; }
+.legal h2:first-of-type { margin-top: 0; }
+.legal p, .legal li { color: var(--color-ink); line-height: 1.7; }
+.legal ul { padding-left: 1.2rem; margin: 0.4rem 0 1rem; }
+.legal li + li { margin-top: 0.35rem; }
+.legal a { color: var(--color-accent-deep); }
+.legal table { width: 100%; border-collapse: collapse; margin: 0.8rem 0 1.2rem; font-size: 0.95rem; }
+.legal th, .legal td { text-align: left; padding: 0.6rem 0.7rem; vertical-align: top; border-bottom: 1px solid rgba(44, 58, 71, 0.12); }
+.legal th { font-weight: 600; color: var(--color-ink-muted); font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; }
+.legal__back { display: inline-block; margin-top: 2.5rem; }
 
 /* =========================================================
    REVEAL ON SCROLL
