@@ -11,7 +11,7 @@
 (function () {
   "use strict";
 
-  var GA_ID = "";              // identyfikator pomiaru GA4, np. "G-XXXXXXXXXX"
+  var GA_ID = "G-G1ENNZR1W1";              // identyfikator pomiaru GA4, np. "G-XXXXXXXXXX"
   var STORAGE_KEY = "nd-consent";
   var CONSENT_VERSION = 1;     // podbić, gdy zmieni się zakres tego, na co pytamy
 
@@ -145,10 +145,12 @@
   function showBanner() {
     if (!banner) banner = buildBanner();
     if (!banner.isConnected) document.body.appendChild(banner);
-    // dwie klatki, żeby zadziałała animacja wejścia
-    requestAnimationFrame(function () {
-      requestAnimationFrame(function () { banner.classList.add("is-visible"); });
-    });
+    // Dwie klatki dają płynne wejście, ale requestAnimationFrame bywa
+    // wstrzymany (karta w tle, wczytywanie dużych obrazów), a banner musi
+    // się pokazać zawsze. Stąd zapasowy timer — co zadziała pierwsze.
+    var reveal = function () { banner.classList.add("is-visible"); };
+    requestAnimationFrame(function () { requestAnimationFrame(reveal); });
+    window.setTimeout(reveal, 120);
   }
 
   function hideBanner() {
